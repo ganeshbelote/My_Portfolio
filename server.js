@@ -3,8 +3,10 @@ import path from 'path'
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
+import cors from 'cors';
 
 const app = express()
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 dotenv.config()
