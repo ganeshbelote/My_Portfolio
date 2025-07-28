@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Green Circle -->
+  <circle cx="256" cy="256" r="256" fill="#13AA52"/>
+  
+  <!-- White Leaf (scaled down slightly) -->
+  <g transform="scale(0.65) translate(128 128)">
+    <path fill="#FFFFFF" d="M256 0C180 96 96 256 256 512 416 256 332 96 256 0z"/>
+  </g>
+</svg>
