@@ -623,6 +623,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  .left-section{
+    margin-bottom: 1rem !important;
+  }
   .up-section,
   .bottom-section {
     flex-direction: column;
@@ -783,4 +786,9 @@ body {
 
 .contact-form button:hover {
   background-color: #f7e7c6;
+}
+
+.dull{
+  pointer-events: none;
+  opacity: 0.5;
 }

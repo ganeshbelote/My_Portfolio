@@ -9,6 +9,8 @@ const projectBtn = document.querySelector('#project-btn')
 const certificateBtn = document.querySelector('#certificate-btn')
 const certificatesLinks = document.querySelectorAll('.styled-wrapper')
 const resumeBtn = document.querySelector('#resume')
+const contactFormInputs = document.querySelector('.contact-form form')
+const submitBtn = document.querySelector('.contact-form form button[type="submit"]')
 
 const Links = ['https://lnkd.in/dHNUZgdG', 'https://lnkd.in/d3Jzc8tE']
 
@@ -61,9 +63,79 @@ handleCertificateSection()
 
 const handleResumeDownload = () => {
   resumeBtn.addEventListener('click', () => {
-    resumeBtn.addEventListener('click', () => {
-      window.open('./assets/Ganesh_Belote_MERN_Resume_updated.pdf', '_blank') 
-    })
+    window.open('./assets/Ganesh_Belote_MERN_Resume_updated.pdf', '_blank')
   })
 }
 handleResumeDownload()
+
+const handleEmailService = () => {
+  contactFormInputs.addEventListener('submit', e => {
+    e.preventDefault()
+    if (!contactFormInputs.email.value || !contactFormInputs.subject.value || !contactFormInputs.message.value) {
+      Toastify({
+        text: 'Please fill in all fields.',
+        duration: 3000,
+        gravity: 'top',
+        position: 'right',
+        style: {
+          background: '#dc3545'
+        }
+      }).showToast()
+      return
+    }
+    const formData = new FormData(contactFormInputs)
+    const data = Object.fromEntries(formData.entries())
+    submitBtn.classList.add('dull')
+    submitBtn.textContent = 'Sending...'
+    fetch('/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          Toastify({
+            text: 'Message sent successfully!',
+            duration: 3000,
+            gravity: 'top',
+            position: 'right',
+            style: {
+              background: '#28a745'
+            }
+          }).showToast()
+          contactFormInputs.reset()
+          contactForm.style.display = 'none'
+        } else {
+          Toastify({
+            text: 'There was an error sending your message.',
+            duration: 3000,
+            gravity: 'top',
+            position: 'right',
+            style: {
+              background: '#dc3545'
+            }
+          }).showToast()
+        }
+      })
+      .finally(() => {
+        submitBtn.classList.remove('dull')
+        submitBtn.textContent = 'Send Message'
+      })
+      .catch(error => {
+        console.error('Error:', error)
+        Toastify({
+          text: 'Something went wrong!',
+          duration: 3000,
+          gravity: 'top',
+          position: 'right',
+          style: {
+            background: '#dc3545'
+          }
+        }).showToast()
+      })
+  })
+}
+handleEmailService()

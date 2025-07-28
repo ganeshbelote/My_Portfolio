@@ -29,6 +29,12 @@
     <meta property="og:type" content="website" />
 
     <meta name="theme-color" content="#181818" />
+    <!-- Toastify CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap"
@@ -307,6 +313,7 @@
         <form>
           <label for="email">Email</label>
           <input
+            name="email"
             type="email"
             id="email"
             placeholder="Enter your email"
@@ -315,6 +322,7 @@
 
           <label for="subject">Subject</label>
           <input
+            name="subject"
             type="text"
             id="subject"
             placeholder="Enter the subject"
@@ -323,6 +331,7 @@
 
           <label for="message">Message</label>
           <textarea
+            name="message"
             id="message"
             placeholder="Type your message here..."
             rows="5"
@@ -334,5 +343,9 @@
       </div>
     </div>
   </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
   <script src="./scripts/script.js"></script>
 </html>
