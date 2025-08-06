@@ -11,8 +11,10 @@ const certificatesLinks = document.querySelectorAll('.styled-wrapper')
 const resumeBtn = document.querySelector('#resume')
 const contactFormInputs = document.querySelector('.contact-form form')
 const submitBtn = document.querySelector('.contact-form form button[type="submit"]')
+const liveBtn = document.querySelectorAll("#live-link")
 
 const Links = ['https://lnkd.in/dHNUZgdG', 'https://lnkd.in/d3Jzc8tE']
+const liveLinks = ['https://e-learning-website-by-ganesh.netlify.app/','https://todowebappbyganesh.netlify.app/']
 
 const handleSlider = () => {
   leftBtn.addEventListener('click', () => {
@@ -139,3 +141,12 @@ const handleEmailService = () => {
   })
 }
 handleEmailService()
+
+const handleRedirectProjects = () => {
+  liveBtn.forEach((el, ind) =>
+    el.addEventListener('click', () => {
+      window.location.href = liveLinks[ind]
+    })
+  )
+}
+handleRedirectProjects()
