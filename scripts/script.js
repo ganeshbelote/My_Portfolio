@@ -1,6 +1,7 @@
 const leftBtn = document.querySelector('.left-btn')
 const rightBtn = document.querySelector('.right-btn')
 const slider = document.querySelector('.slider')
+const projects = document.querySelectorAll('.projects');
 const contactForm = document.querySelector('.contact-form-container')
 const contactBtn = document.querySelector('.contact')
 const cancleBtn = document.querySelector('#cancle')
@@ -14,18 +15,32 @@ const submitBtn = document.querySelector('.contact-form form button[type="submit
 const liveBtn = document.querySelectorAll("#live-link")
 
 const Links = ['https://lnkd.in/dHNUZgdG', 'https://lnkd.in/d3Jzc8tE']
-const liveLinks = ['https://e-learning-website-by-ganesh.netlify.app/','https://todowebappbyganesh.netlify.app/']
+const liveLinks = ['https://e-learning-website-by-ganesh.netlify.app/','https://todowebappbyganesh.netlify.app/','https://typract.netlify.app/','https://ganeshbeloteportfolio.netlify.app/','https://medifor7clone.netlify.app/']
+
+let currentIndex = 0;
+const totalProjects = projects.length;
+
+const updateSlider = () => {
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+};
 
 const handleSlider = () => {
-  leftBtn.addEventListener('click', () => {
-    slider.style.transform = 'translateX(0%)'
-  })
-
   rightBtn.addEventListener('click', () => {
-    slider.style.transform = 'translateX(-100%)'
-  })
-}
-handleSlider()
+    if (currentIndex < totalProjects - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  leftBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+};
+
+handleSlider();
 
 const handleContactForm = () => {
   let show = false
