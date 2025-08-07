@@ -456,7 +456,6 @@ body {
           -webkit-tap-highlight-color: transparent;
           -webkit-user-drag: none;
           user-select: none;
-          pointer-events: none;
           outline: none;
           background-color: #daa520;
           cursor: pointer;
