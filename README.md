@@ -50,10 +50,10 @@ Hosted on **Render** for smooth performance and accessibility.
 Create a .env file in the root directory:
 
 ```
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_password
+EMAIL=your_email@example.com
+PASS=your_email_password
 ```
 Update server.js Nodemailer config to use your .env variables.
 
 🌐 Live Demo
-🔗 Visit Portfolio
+🔗 [Visit My Portfolio](https://ganeshbelote.onrender.com/)
