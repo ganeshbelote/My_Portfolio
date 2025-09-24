@@ -15,13 +15,25 @@ const submitBtn = document.querySelector('.contact-form form button[type="submit
 const liveBtn = document.querySelectorAll("#live-link")
 
 const Links = ['https://lnkd.in/dHNUZgdG', 'https://lnkd.in/d3Jzc8tE']
-const liveLinks = ['https://e-learning-website-by-ganesh.netlify.app/','https://todowebappbyganesh.netlify.app/','https://typract.netlify.app/','https://ganeshbeloteportfolio.netlify.app/','https://medifor7clone.netlify.app/']
+const liveLinks = ['https://learnvault.infinityfreeapp.com/','https://e-learning-website-by-ganesh.netlify.app/','https://todowebappbyganesh.netlify.app/','https://typract.netlify.app/','https://ganeshbeloteportfolio.netlify.app/','https://medifor7clone.netlify.app/']
 
 let currentIndex = 0;
 const totalProjects = projects.length;
 
 const updateSlider = () => {
   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  if (currentIndex <= 0) {
+    leftBtn.style.opacity = '0';
+  } else {
+    leftBtn.style.opacity = '1';
+  }
+
+  if (currentIndex >= totalProjects - 1) {
+    rightBtn.style.opacity = '0';
+  } else {
+    rightBtn.style.opacity = '1';
+  }
 };
 
 const handleSlider = () => {
@@ -40,6 +52,7 @@ const handleSlider = () => {
   });
 };
 
+updateSlider()
 handleSlider();
 
 const handleContactForm = () => {
@@ -80,7 +93,7 @@ handleCertificateSection()
 
 const handleResumeDownload = () => {
   resumeBtn.addEventListener('click', () => {
-    window.open('./assets/Ganesh_Belote_MERN_Resume_updated.pdf', '_blank')
+    window.open('./assets/Ganesh_Belote_Resume.pdf', '_blank')
   })
 }
 handleResumeDownload()
